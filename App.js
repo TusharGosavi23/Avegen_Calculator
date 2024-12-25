@@ -22,14 +22,13 @@ export default function App() {
     <ThemeContext.Provider value={theme}>
       <SafeAreaView
         style={[
-          theme === "light" ? styles.container : [styles.container, { backgroundColor: "black" }],
+          theme === "light"
+            ? styles.container
+            : [styles.container, { backgroundColor: "black" }],
         ]}
       >
         {/* Header Section */}
         <View style={styles.header}>
-          <Text style={[styles.heading, theme === "dark" && { color: "white" }]}>
-            Calculator
-          </Text>
           <View style={styles.switchContainer}>
             <Text style={[styles.switchText, theme === "dark" && { color: "white" }]}>
               {theme === "light" ? "Light Mode" : "Dark Mode"}
@@ -69,9 +68,19 @@ export default function App() {
         </View>
 
         {/* Footer Section */}
-        <View style={styles.footer}>
-          <Text style={[styles.footerText, theme === "dark" && { color: "black" }]}>
-            © 2024 My Calculator App
+        <View
+          style={[
+            styles.footer,
+            theme === "dark" && { backgroundColor: "black" }, // Set black background in dark mode
+          ]}
+        >
+          <Text
+            style={[
+              styles.footerText,
+              theme === "dark" ? { color: "white" } : { color: "black" }, // Adjust text color for visibility
+            ]}
+          >
+            Calculator made by Tushar Gosavi
           </Text>
         </View>
       </SafeAreaView>
@@ -91,12 +100,6 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     marginVertical: 20,
-  },
-  heading: {
-    fontSize: 36,
-    fontWeight: "bold",
-    marginBottom: 10,
-    color: "black",
   },
   switchContainer: {
     flexDirection: "row",
@@ -137,16 +140,15 @@ const styles = StyleSheet.create({
   },
   footer: {
     width: "100%",
-    padding: 5,
-    backgroundColor: myColors.light,
+    padding: 10,
     alignItems: "center",
     justifyContent: "center",
     borderTopWidth: 1,
     borderTopColor: myColors.grey,
+    marginTop: 20,
   },
   footerText: {
     fontSize: 14,
-    fontWeight:500,
-    color: myColors.black,
+    fontWeight: "500",
   },
 });

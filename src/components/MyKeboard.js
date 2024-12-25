@@ -64,7 +64,7 @@ export default function MyKeyboard({ input, setInput, setResult, handleInputRese
         <Button title="." onPress={() => handleNumberPress(".")} />
         <Button title="0" onPress={() => handleNumberPress("0")} />
         <Button title="⌫" onPress={() => setInput((prev) => prev.slice(0, -1))} />
-        <Button title="=" isBlue onPress={calculate} />
+        <Button title="=" isGreen onPress={calculate} />
       </View>
     </View>
   );

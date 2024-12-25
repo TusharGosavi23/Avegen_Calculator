@@ -2,12 +2,14 @@ import React from "react";
 import { TouchableOpacity, Text } from "react-native";
 import { Styles } from "../styles/GlobalStyles";
 
-export default function Button({ title, onPress, isBlue, isGray }) {
+export default function Button({ title, onPress, isBlue, isGray, isGreen }) {
   return (
     <TouchableOpacity
       onPress={onPress}
       style={
-        isBlue
+        isGreen
+          ? Styles.btnGreen
+          : isBlue
           ? Styles.btnBlue
           : isGray
           ? Styles.btnGray
@@ -16,7 +18,7 @@ export default function Button({ title, onPress, isBlue, isGray }) {
     >
       <Text
         style={
-          isBlue || isGray
+          isGreen || isBlue || isGray
             ? Styles.smallTextLight
             : Styles.smallTextDark
         }
